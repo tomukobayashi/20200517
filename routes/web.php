@@ -17,7 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('hello/{id?}', 'HelloController@index');
 Route::get('hello', 'HelloController@index');
-//ポスト通信
-//Route::post('hello', 'HelloController@post');
