@@ -9,11 +9,11 @@
 </head>
 <body>
    <h1>Blade/Index</h1>
-   @if($msg !='')
+   @isset($msg)
    <p>こんにちは{{$msg}}さん</p>
    @else
    <p>何か書いてください</p>
-   @endif
+   @endisset
    <form method="POST" action="/hello">
    <!-- @csrf=CSRF対策の為に用意されたBladeディレクティブで@csrfを付けないとフォームの送信は行えないようになっている。 -->
    @csrf 
