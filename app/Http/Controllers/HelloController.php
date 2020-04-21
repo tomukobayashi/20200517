@@ -10,8 +10,12 @@ use Illuminate\Http\Response;
 
 class HelloController extends Controller
 {
-   public function index() {
-     $data =['msg'=>'これはコントローラーから渡されたメッセージです。'];
-    return view('hello.index',$data);
+   public function index(Request $request) {
+    // public function index($id = 'zero') {
+     //data配列
+    //  $data =['msg'=>'これはコントローラーから渡されたメッセージです。','id'=>$id];
+    $data =['msg'=>'これはコントローラーから渡されたメッセージです。','id'=>$request->id];
+
+     return view('hello.index',$data);
   }
 }
