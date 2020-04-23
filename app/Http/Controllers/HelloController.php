@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\DB;
 class HelloController extends Controller
 {
     public function index(Request $request)
-   {
-       $items = DB::select('select * from people');
+    {
+       $items = DB::table('people')->get();
        return view('hello.index', ['items' => $items]);
-   }
+    }
 
    public function post(Request $request)
    {
@@ -27,6 +27,8 @@ class HelloController extends Controller
        return view('hello.index', ['items' => $items]);
    }
 
+
+   // insert
    public function add(Request $request)
    {
        return view('hello.add');
@@ -43,6 +45,8 @@ class HelloController extends Controller
        return redirect('/hello');
    }
 
+
+   // update
    public function edit(Request $request)
 {
    $param = ['id' => $request->id];
@@ -62,6 +66,7 @@ public function update(Request $request)
    return redirect('/hello');
 }
 
+//delete
 public function del(Request $request)
 {
    $param = ['id' => $request->id];
@@ -74,6 +79,14 @@ public function remove(Request $request)
    $param = ['id' => $request->id];
    DB::delete('delete from people where id = :id', $param);
    return redirect('/hello');
+}
+
+//show
+public function show(Request $request)
+{
+    $id = $request->id;
+    $items = DB::table('people')->where('id', '<=', $id)->get();
+    return view('hello.show', ['items' => $items]);
 }
 
 }
