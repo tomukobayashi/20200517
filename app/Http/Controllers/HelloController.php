@@ -84,8 +84,12 @@ public function remove(Request $request)
 //show
 public function show(Request $request)
 {
-    $items = DB::table('people')->orderBy('Age', 'asc')->get();
-    return view('hello.index', ['items' => $items]);
+    $page = $request->page;
+   $items = DB::table('people')
+       ->offset($page * 3)
+       ->limit(3)
+       ->get();
+   return view('hello.show', ['items' => $items]);
 }
 
 }
