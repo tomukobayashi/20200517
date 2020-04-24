@@ -20,7 +20,15 @@ class PersonController extends Controller
 
     public function search(Request $request)
     {
-        $item = Person::find($request->input);
+        //名前
+        // $item = Person::nameEqual($request->input)->first();
+        // $param = ['input' => $request->input, 'item' => $item];
+        // return view('person.find', $param);
+
+        //〇〇以上〇〇以下
+        $min = $request->input * 1;
+        $max = $min + 10;
+        $item = Person::ageGreaterThan($min)->ageLessThan($max)->first();
         $param = ['input' => $request->input, 'item' => $item];
         return view('person.find', $param);
     }
