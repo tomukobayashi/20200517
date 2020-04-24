@@ -44,3 +44,7 @@ Route::post('person/find', 'PersonController@search');
 //personadd
 Route::get('person/add', 'PersonController@add');
 Route::post('person/add', 'PersonController@create');
+
+//personupdate
+Route::get('person/edit', 'PersonController@edit');
+Route::post('person/edit', 'PersonController@update');
