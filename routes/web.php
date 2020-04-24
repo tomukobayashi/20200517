@@ -40,3 +40,7 @@ Route::get('person', 'PersonController@index');
 //personfind
 Route::get('person/find', 'PersonController@find');
 Route::post('person/find', 'PersonController@search');
+
+//personadd
+Route::get('person/add', 'PersonController@add');
+Route::post('person/add', 'PersonController@create');
