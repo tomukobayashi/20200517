@@ -50,6 +50,7 @@ class PersonController extends Controller
         return redirect('/person');
     }
 
+    //更新
     public function edit(Request $request)
     {
         $person = Person::find($request->id);
@@ -66,4 +67,18 @@ class PersonController extends Controller
         $person->fill($form)->save();
         return redirect('/person');
     }   
+
+
+    //削除
+    public function delete(Request $request)
+    {
+         $person = Person::find($request->id);
+        return view('person.del', ['form' => $person]);
+    }
+
+    public function remove(Request $request)
+    {
+        Person::find($request->id)->delete();
+        return redirect('/person');
+    }
 }
