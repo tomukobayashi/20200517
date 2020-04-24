@@ -32,3 +32,11 @@ Route::get('hello/del', 'HelloController@del');
 Route::post('hello/del', 'HelloController@remove');
 
 Route::get('hello/show', 'HelloController@show');
+
+
+//person
+Route::get('person', 'PersonController@index');
+
+//personfind
+Route::get('person/find', 'PersonController@find');
+Route::post('person/find', 'PersonController@search');
