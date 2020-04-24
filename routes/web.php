@@ -53,3 +53,11 @@ Route::post('person/edit', 'PersonController@update');
 //persondelete
 Route::get('person/del', 'PersonController@delete');
 Route::post('person/del', 'PersonController@remove');
+
+
+//board
+Route::get('board', 'BoardController@index');
+
+//boardadd
+Route::get('board/add', 'BoardController@add');
+Route::post('board/add', 'BoardController@create');
