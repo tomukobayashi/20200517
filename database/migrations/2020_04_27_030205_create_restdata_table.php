@@ -1,9 +1,10 @@
 <?php
- 
-use Illuminate\Database\Schema\Blueprint;
+
 use Illuminate\Database\Migrations\Migration;
- 
-class CreateSamplesTable extends Migration
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateRestdataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +13,15 @@ class CreateSamplesTable extends Migration
      */
     public function up()
     {
-        Schema::create('samples', function (Blueprint $table) {
+        Schema::create('restdata', 
+                function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->text('body');
-            $table->text('username');
+            $table->string('message');
+            $table->string('url');
             $table->timestamps();
         });
     }
- 
+
     /**
      * Reverse the migrations.
      *
@@ -28,6 +29,6 @@ class CreateSamplesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('samples');
+        Schema::dropIfExists('restdata');
     }
 }

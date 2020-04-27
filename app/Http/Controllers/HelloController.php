@@ -105,4 +105,9 @@ public function show(Request $request)
    return view('hello.show', ['items' => $items]);
 }
 
+public function rest(Request $request)
+{
+   return view('hello.rest');
+}
+
 }
