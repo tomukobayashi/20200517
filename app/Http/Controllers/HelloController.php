@@ -17,13 +17,18 @@ use App\Person;
 
 class HelloController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $items = DB::table('people')->simplePaginate(5);
-        return view('hello.index', ['items' => $items]);
+        // $items = DB::table('people')->simplePaginate(5);
+        $sort = $request->sort;
+        $items = Person::orderBy($sort, 'asc')
+                ->paginate(5);
+        $param = ['items' => $items, 'sort' => $sort];
+        return view('hello.index', $param);
+        // return view('hello.index', ['items' => $items]);
     }
 
-   public function post()
+   public function post(Request $request)
    {
        $items = DB::select('select * from people');
        return view('hello.index', ['items' => $items]);
@@ -31,7 +36,7 @@ class HelloController extends Controller
 
 
    // insert
-   public function add()
+   public function add(Request $request)
    {
        return view('hello.add');
    }
