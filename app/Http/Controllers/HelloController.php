@@ -13,12 +13,14 @@ use Illuminate\Http\Response;
 
 use Illuminate\Support\Facades\DB;
 
+use App\Person;
+
 class HelloController extends Controller
 {
     public function index()
     {
-       $items = DB::table('people')->get();
-       return view('hello.index', ['items' => $items]);
+        $items = DB::table('people')->simplePaginate(5);
+        return view('hello.index', ['items' => $items]);
     }
 
    public function post()
