@@ -18,10 +18,12 @@
 
     @if (Auth::check())
         <p>USER: {{$user->name . ' (' . $user->email . ')'}}</p>
+        <p><a href="/login">ログアウト</a></p>
     @else
         <p>※ログインしていません。（<a href="/login">ログイン</a>｜
         <a href="/register">登録</a>）</p>
     @endif
+    <a href="http://localhost:8000/hello/add">表にデータを追加</a>
    <table>
    <tr>
        <th><a href="/hello?sort=name">name</a></th>
@@ -30,7 +32,9 @@
    </tr>
    @foreach ($items as $item)
        <tr>
-           <td>{{$item->name}}</td>
+           <td>{{$item->name}}<br>
+           <a href="hello/edit?id=<?php echo $item->id; ?>">更新</a>/
+           <a href="hello/del?id=<?php echo $item->id; ?>">削除</a></td>
            <td>{{$item->mail}}</td>
            <td>{{$item->age}}</td>
        </tr>

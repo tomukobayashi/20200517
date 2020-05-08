@@ -49,11 +49,9 @@ Route::post('person/add', 'PersonController@create');
 Route::get('person/edit', 'PersonController@edit');
 Route::post('person/edit', 'PersonController@update');
 
-
 //persondelete
 Route::get('person/del', 'PersonController@delete');
 Route::post('person/del', 'PersonController@remove');
-
 
 //board
 Route::get('board', 'BoardController@index');
@@ -70,12 +68,12 @@ Route::get('hello/rest', 'HelloController@rest');
 //hellosession
 Route::get('hello/session', 'HelloController@ses_get');
 Route::post('hello/session', 'HelloController@ses_put');
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 //auth
 Route::get('hello/auth', 'HelloController@getAuth');
 Route::post('hello/auth', 'HelloController@postAuth');
 
-Route::get('hello', 'HelloController@index')->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

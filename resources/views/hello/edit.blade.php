@@ -19,7 +19,7 @@
       <tr><th>age: </th><td><input type="text" name="age" 
          value="{{$form->age}}"></td></tr>
       <tr><th></th><td><input type="submit" 
-         value="send"></td></tr>
+         value="更新"></td></tr>
    </table>
    </form>
 @endsection
