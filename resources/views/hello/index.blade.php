@@ -19,11 +19,7 @@
     @if (Auth::check())
         <p>USER: {{$user->name . ' (' . $user->email . ')'}}</p>
         <p><a href="/login">ログアウト</a></p>
-    @else
-        <p>※ログインしていません。（<a href="/login">ログイン</a>｜
-        <a href="/register">登録</a>）</p>
-    @endif
-    <a href="http://localhost:8000/hello/add">表にデータを追加</a>
+        <a href="http://localhost:8000/hello/add">表にデータを追加</a>
    <table>
    <tr>
        <th><a href="/hello?sort=name">name</a></th>
@@ -41,6 +37,10 @@
    @endforeach
    </table>
    {{ $items->appends(['sort' => $sort])->links() }}
+    @else
+        <p>※ログインしていません。（<a href="/login">ログイン</a>｜
+        <a href="/register">登録</a>）</p>
+    @endif
 @endsection
 
 @section('footer')
