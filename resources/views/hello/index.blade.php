@@ -18,7 +18,14 @@
 
     @if (Auth::check())
         <p>USER: {{$user->name . ' (' . $user->email . ')'}}</p>
-        <p><a href="/login">ログアウト</a></p>
+    　  <p><a  href="{{ route('logout') }}"onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+        ログアウト
+        </a><p>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+        </form>
+        
         <a href="http://localhost:8000/hello/add">表にデータを追加</a>
    <table>
    <tr>
