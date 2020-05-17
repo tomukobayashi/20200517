@@ -8,8 +8,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-// use App\Http\Requests\HelloRequest;
-// use Validator;
+use App\Http\Requests\Hellorequest;
+use Validator;
 
 use Illuminate\Support\Facades\DB;
 
@@ -47,15 +47,16 @@ class HelloController extends Controller
        return view('hello.add');
    }
 
-   public function create(Request $request)
+   public function create(Hellorequest $request)
    {
        $param = [
            'name' => $request->name,
            'mail' => $request->mail,
            'age' => $request->age,
        ];
-    //  DB::insert('insert into people (name, mail, age) values (:name, :mail, :age)', $param);
+        DB::insert('insert into people (name, mail, age) values (:name, :mail, :age)', $param);
         DB::table('people')->insert($param);
+        
        return redirect('/hello');
    }
 

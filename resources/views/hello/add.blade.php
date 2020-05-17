@@ -11,8 +11,17 @@
    <form action="/hello/add" method="post">
    <table>
       @csrf
+      @error('name')
+         <tr><th>入力エラー</th><td>{{$message}}</td><tr>
+      @enderror
       <tr><th>name: </th><td><input type="text" name="name"></td></tr>
+      @error('mail')
+         <tr><th>入力エラー</th><td>{{$message}}</td><tr>
+      @enderror
       <tr><th>mail: </th><td><input type="text" name="mail"></td></tr>
+      @error('age')
+         <tr><th>入力エラー</th><td>{{$message}}</td><tr>
+      @enderror
       <tr><th>age: </th><td><input type="text" name="age"></td></tr>
       <tr><th></th><td><input type="submit" value="追加"></td></tr>
    </table>
