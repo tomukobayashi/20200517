@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 use App\Http\Requests\Hellorequest;
+use App\Http\Requests\HelloRequest2;
 use Validator;
 
 use Illuminate\Support\Facades\DB;
@@ -56,7 +57,7 @@ class HelloController extends Controller
        ];
         DB::insert('insert into people (name, mail, age) values (:name, :mail, :age)', $param);
         DB::table('people')->insert($param);
-        
+
        return redirect('/hello');
    }
 
@@ -72,7 +73,7 @@ class HelloController extends Controller
     return view('hello.edit', ['form' => $item]);
 }
 
-public function update(Request $request)
+public function update(HelloRequest2 $request)
 {
    $param = [
         //  'id' => $request->id,
