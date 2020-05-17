@@ -22,7 +22,7 @@
       @error('age')
          <tr><th>ERROR:</th><td>{{$message}}</td><tr>
       @enderror
-      <tr><th>age: </th><td><input type="text" name="age"></td></tr>
+      <tr><th>age(0~150): </th><td><input type="text" name="age"></td></tr>
       <tr><th></th><td><input type="submit" value="追加"></td></tr>
    </table>
    </form>
